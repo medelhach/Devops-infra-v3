@@ -1,82 +1,54 @@
-#####
-
-variable "resource_group" {
-  type = string
-}
-
-variable "lb_type" {
-  type    = string
-  default = "public"
-}
-
 variable "cluster_name" {
   type = string
 }
 
-variable "environment" {
+variable "location" {
   type = string
 }
 
-variable "name_suffix" {
+variable "resource_group_name" {
   type = string
 }
 
-variable "target" {
-  type    = string
-  default = "workers"
+variable "subnet_id" {
+  type = string
 }
 
-variable "sku" {
-  type    = string
-  default = "Basic"
-}
-
-variable "lb_ports" {
-  type    = list(map(string))
-  default = []
-}
-
-variable "public_ips" {
-  type    = map(map(string))
-  default = {}
-}
-
-variable "private_ips" {
-  type    = map(map(string))
-  default = {}
-}
-
-variable "lb_probe_interval" {
-  type    = number
-  default = 5
-}
-
-variable "lb_probe_unhealthy_threshold" {
+variable "rancher_vm_count" {
   type    = number
   default = 2
 }
 
-variable "subnet_id" {
-  type    = string
-  default = ""
+variable "workload_vm_count" {
+  type    = number
+  default = 2
 }
 
-variable "frontend_private_ip_address_allocation" {
-  type    = string
-  default = "Dynamic"
+
+variable "vm_admin_username" {
+  type = string
 }
 
-variable "frontend_private_ip_address" {
-  type    = string
-  default = ""
+variable "vm_admin_password" {
+  type = string
+}
+
+variable "os_disk_size_gb" {
+  type    = number
+  default = 50
+}
+
+variable "data_disk_size_gb" {
+  type    = number
+  default = 50
 }
 
 variable "default_tags" {
-  type    = map(string)
-  default = {}
+  type = map(string)
 }
 
-variable "ns_rules" {
-  type = list(map(string))
-  default = []
+
+variable "vm_size" {
+  type    = string
+  default = "Standard_D2plds_v5"
 }
